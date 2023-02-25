@@ -19,9 +19,11 @@
       
       <x-form.textarea name="body">{{ old('excerpt', $post->body) }}</x-form.textarea>
       
-      <x-form.select name="category" :list="App\Models\Category::all()" isCollection="{{ true }}" :post="$post" />
+      <x-form.select name="category" isCollection="{{ true }}" :post="$post" />
       
       <x-form.select name="status" :list="config('constants.post.statuses')" :post="$post" />
+      
+      <x-form.select name="user" isCollection="{{ true }}" :post="$post" />
 
       <x-form.button>Update</x-form.button>
     </form>
