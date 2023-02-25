@@ -1,6 +1,6 @@
 ## Start Project
 
-Here are the steps to setup the project locally:<br>
+Steps to setup the project locally:<br>
 - Install the dependencies
   <pre>
     <code>composer install</code>
