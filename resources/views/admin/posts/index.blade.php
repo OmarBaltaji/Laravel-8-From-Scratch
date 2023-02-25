@@ -18,6 +18,12 @@
                                       </div>
                                   </td>
 
+                                  <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                    <span class="{{ $post->status === 'published' ? 'bg-green-100 text-green-800' : 'bg-gray-200 text-gray-800' }} text-white rounded-3xl py-2 px-3">
+                                        {{ ucwords($post->status) }}
+                                    </span>
+                                  </td>
+
                                   <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                       <a href="/admin/posts/{{ $post->id }}/edit" class="text-blue-500 hover:text-blue-600">Edit</a>
                                   </td>

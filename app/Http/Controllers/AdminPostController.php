@@ -68,6 +68,7 @@ class AdminPostController extends Controller
             'body' => 'required',
             'excerpt' => 'required',
             'category_id' => ['required','integer', Rule::exists('categories', 'id')],
+            'status' => ['string', Rule::in(config('constants.statuses'))]
         ]);
     }
 }
