@@ -12,12 +12,8 @@
     <x-dropdown-item href="/?{{ http_build_query(request()->except('category', 'page')) }}" :active="$isCategoryNull && request()->routeIs('home')">All</x-dropdown-item>
     @foreach ($categories as $category)
         <x-dropdown-item 
-            {{-- href="/categories/{{ $category->slug }}" --}}
             href="?category={{ $category->slug }}&{{ http_build_query(request()->except('category', 'page')) }}"
-            {{-- :active="isset($currentCategory) && $currentCategory->is($category)" --}}
-            {{-- :active='request()->is("categories/{$category->slug}")' --}}
             :active='request()->get("category") === "{$category->slug}"'
-            {{-- :active="request()->is('*' . $category->slug)" --}} {{-- the uri here can be anything but needs to contain the category slug --}}
         >
             {{ ucwords($category->name) }}
         </x-dropdown-item>

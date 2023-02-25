@@ -48,12 +48,12 @@ class User extends Authenticatable
         return $this->hasMany(Post::class);
     }
 
-    public function setPasswordAttribute($password) // mutator follows set...Attribute naming convention
+    public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
     }
 
-    public function getUsernameAttribute($username) // getter follows get...Attribute naming convention
+    public function getUsernameAttribute($username)
     {
         return ucwords($username);
     }

@@ -23,8 +23,6 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         app()->bind(Newsletter::class, function () {
-            // return new Newsletter(new ApiClient(), 'foobar');
-
             $client = (new ApiClient())->setConfig([
                 'apiKey' => config('services.mailchimp.key'),
                 'server' => 'us12'
@@ -42,9 +40,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        // Model::unguard(); // this is to remove mass assignment rules on all models
-        // Paginator::useBootstrap();
-
+        
         Gate::define('admin', function (User $user) {
             return $user->username == 'Omarb';
         });

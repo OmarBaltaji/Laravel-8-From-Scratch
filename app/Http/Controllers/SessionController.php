@@ -34,8 +34,5 @@ class SessionController extends Controller
         
         session()->regenerate();
         return redirect('/')->with('success', 'Welcome Back');
-
-        // return back()->withInput()
-        //         ->withErrors([ 'email' => 'Your provided credentials could not be verified.']);
     }
 }

@@ -14,10 +14,6 @@ class PostCommentController extends Controller
         ]);
  
         $post->comments()->create([
-            // if request was injected in the method => Request $request
-            // 'user_id' => $request->user()->id(),
-            // 'body' => $request->input('body'),
-            
             'user_id' => request()->user()->id,
             'body' => request('body'),
         ]);

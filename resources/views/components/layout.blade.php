@@ -21,21 +21,16 @@
             </div>
 
             <div class="mt-8 md:mt-0 flex items-center">
-                {{-- @if (auth()->check()) --}}
                 @auth
                     <x-dropdown>
                         <x-slot name="trigger">
                             <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}</button>
                         </x-slot>
 
-                        {{-- @if(auth()->user()->can('admin')) --}}
-                        {{-- @can('admin') --}}
                         @admin
                             <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">All Posts</x-dropdown-item>
                             <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New post</x-dropdown-item>
                         @endadmin
-                        {{-- @endcan --}}
-                        {{-- @endif --}}
 
                         <x-dropdown-item x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()" href="#">Logout</x-dropdown-item>
                         
