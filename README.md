@@ -9,6 +9,9 @@
   - Next go to Audience -> Settings -> Audience name and defaults.<br>
     Copy the Audience ID and paste it into the .env variable: <code>MAILCHIMP_LIST_SUBSCRIBERS</code>
 - In the command line, cd to project directory and run migration with seed using command: <br>
-  <code>php run migration -seed</code>
+  <pre>
+    <code>php run migration -seed</code>
+  </pre>
+
 - On the same command line, serve the project by running: <br>
   <code>php artisan serve</code>
