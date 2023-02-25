@@ -7,12 +7,13 @@
       $model = "\App\Models\\" . ucwords($name);
       $list = $model::all();
     }
-    $post_name = $isCollection ? $name . '_id' : $name;
+    $relation_name = $name === 'user' ? 'author' : $name;
+    $name = $isCollection ? $name . '_id' : $name;
   @endphp
-  <select name="{{ $post_name }}" id="{{ $name }}" class="w-full border border-gray-400 py-2 px-4">
+  <select name="{{ $name }}" id="{{ $name }}" class="w-full border border-gray-400 py-2 px-4">
     @foreach ($list as $item)
       @php $value = $isCollection ? $item->id : $item; @endphp
-      <option value="{{ $value }}" {{ $value == old($post_name, $post ? ($isCollection ? $post->{$name}->id : $post->{$name}) : '') ? 'selected' : ''  }}>{{ ucwords($isCollection ? $item->name : $item ) }}</option>            
+      <option value="{{ $value }}" {{ $value == old($name, $post ? ($isCollection ? $post->{$relation_name}->id : $post->{$name}) : '') ? 'selected' : ''  }}>{{ ucwords($isCollection ? $item->name : $item ) }}</option>            
     @endforeach
   </select>
   <x-form.error :name="$name" />
