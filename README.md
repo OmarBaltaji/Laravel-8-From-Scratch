@@ -1,7 +1,12 @@
 ## Start Project
 
+Here are the steps to setup the project locally:<br>
+- Install the dependencies
+  <pre>
+    <code>composer install</code>
+  </pre>
 - Create database on your local machine. example name "blog"
-- Place your credentials and database name in .env
+- Copy .env.example and rename it to .env and then place your credentials and database name in it
 - Set up mailchimp by:
   - Registering for a free mailchimp account on https://mailchimp.com/pricing/marketing/ 
   - Login to mailchimp and go to Account & Billing -> Extras -> API Keys -> Create New Key
