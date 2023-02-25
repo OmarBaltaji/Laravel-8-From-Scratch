@@ -1,5 +1,7 @@
 <?php
 
 return [
-  'statuses' => ['draft', 'published'], 
+  'post' => [
+    'statuses' => ['draft', 'published'], 
+  ]  
 ];

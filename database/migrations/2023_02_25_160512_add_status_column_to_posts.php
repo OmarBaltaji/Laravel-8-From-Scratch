@@ -15,7 +15,7 @@ class AddStatusColumnToPosts extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->enum('status', config('constants.statuses'))->default('draft');
+            $table->enum('status', config('constants.post.statuses'))->default('draft');
         });
 
         // Set old posts to published

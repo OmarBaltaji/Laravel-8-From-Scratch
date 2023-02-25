@@ -13,9 +13,9 @@
       
       <x-form.textarea name="body">{{ old('body') }}</x-form.textarea>
       
-      <x-form.select name="category" :list="App\Models\Category::all()" isIdUsed="{{ true }}" />
+      <x-form.select name="category" isCollection="{{ true }}" />
 
-      <x-form.select name="status" :list="config('constants.statuses')" isIdUsed="{{ false }}" />
+      <x-form.select name="status" :list="config('constants.post.statuses')" />
 
       <x-form.button>Publish</x-form.button>
     </form>
