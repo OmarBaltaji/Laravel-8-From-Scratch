@@ -1,7 +1,7 @@
 <?php
 
-// use App\Http\Controllers\NewsLetterController;
-// use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\NewsLetterController;
+use App\Http\Controllers\AdminPostController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
