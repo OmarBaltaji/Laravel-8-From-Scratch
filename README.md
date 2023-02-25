@@ -14,4 +14,6 @@
   </pre>
 
 - On the same command line, serve the project by running: <br>
-  <code>php artisan serve</code>
+  <pre>
+    <code>php artisan serve</code>
+  </pre>
