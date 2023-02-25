@@ -12,14 +12,6 @@
           <x-form.input name="password" type="password" autocomplete="password" />
 
           <x-form.button>Register</x-form.button>
-          
-          {{-- @if($errors->any())
-            <ul>
-              @foreach ($errors->all() as $error)
-                <li class="text-red-500 text-xs">{{ $error }}</li>
-                @endforeach
-            </ul>
-          @endif --}}
         </form>
       </x-panel>
     </main>

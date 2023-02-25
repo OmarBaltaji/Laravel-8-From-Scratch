@@ -10,7 +10,7 @@ class Post extends Model
 {
     use HasFactory;
     
-    protected $fillable = [ 'title', 'excerpt', 'body', 'slug', 'category_id', 'user_id', 'thumbnail' ]; // Nothing is fillable in mass assignment except for ones mentioned in array
+    protected $fillable = [ 'title', 'excerpt', 'body', 'slug', 'category_id', 'user_id', 'thumbnail' ];
 
     public function category()
     {
