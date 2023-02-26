@@ -14,6 +14,10 @@ class Post extends Model implements Feedable
     
     protected $fillable = [ 'title', 'excerpt', 'body', 'slug', 'category_id', 'user_id', 'thumbnail', 'status' ];
 
+    protected $casts = [
+        'published_at' => 'datetime'
+    ];
+    
     public function category()
     {
         return $this->belongsTo(Category::class);
