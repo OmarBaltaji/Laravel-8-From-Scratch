@@ -18,8 +18,9 @@ class AddStatusColumnToPosts extends Migration
             $table->enum('status', config('constants.post.statuses'))->default('draft');
         });
 
-        // Set old posts to published
+        // Set old posts to published and published at to be equal to the created at date
         DB::statement("UPDATE posts SET status = 'published'");
+        DB::statement("UPDATE posts SET published_at = created_at");
     }
 
     /**

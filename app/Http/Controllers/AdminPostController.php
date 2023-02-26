@@ -29,6 +29,11 @@ class AdminPostController extends Controller
 
         $post = Post::create($attributes);
 
+        if(request('status') === 'published') {
+            $post->published_at = now();
+            $post->save();
+        }
+
         return redirect('/posts/' . $post->slug);
     }
 
@@ -41,12 +46,18 @@ class AdminPostController extends Controller
     public function update(Post $post) 
     {     
         $attributes = $this->validatePost($post);
+        $old_status = $post->status;
       
         if($attributes['thumbnail'] ?? false) {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
         }
 
         $post->update($attributes);
+
+        if($old_status !== 'published' && request('status') === 'published') {
+            $post->published_at = now();
+            $post->save();
+        }
 
         return back()->with('success', 'Post Updated');
     }
