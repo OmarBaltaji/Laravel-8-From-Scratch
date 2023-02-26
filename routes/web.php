@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -27,13 +28,18 @@ Route::post('posts/{post:slug}/comments', [PostCommentController::class, 'store'
 
 Route::post('newsletter', NewsLetterController::class);
 
-Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
-Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
+Route::middleware('guest')->group(function () {
+  Route::get('register', [RegisterController::class, 'create']);
+  Route::post('register', [RegisterController::class, 'store']);
+  
+  Route::get('login', [SessionController::class, 'create']);
+  Route::post('sessions', [SessionController::class, 'store']); 
+});
 
-Route::get('login', [SessionController::class, 'create'])->middleware('guest');
-Route::post('sessions', [SessionController::class, 'store'])->middleware('guest');
-
-Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth');
+Route::middleware('auth')->group(function() {
+  Route::post('logout', [SessionController::class, 'destroy']);
+  Route::post('follow/{user}', [FollowerController::class, 'store']);
+});
 
 Route::middleware('can:admin')->group(function() {
   Route::resource('admin/posts', AdminPostController::class)->except('show');

@@ -13,7 +13,7 @@ class PostController extends Controller
         return view('posts.index', [
             'posts' => Post::latest('created_at')
                         ->where('status', 'published')
-                        ->with('category', 'author')
+                        ->with('category', 'author.followers')
                         ->filter(request(['search', 'category', 'author']))
                         ->paginate(6)->withQueryString(), 
         ]);
