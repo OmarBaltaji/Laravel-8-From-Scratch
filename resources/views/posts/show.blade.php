@@ -5,7 +5,7 @@
                 <img src="{{$post->thumbnail ? asset('storage/' . $post->thumbnail) : '/images//illustration-1.png'}}" alt="" class="rounded-xl w-full max-h-96">
 
                 @if ($post->status === 'published')
-                    <div class="flex items-center justify-between mt-4">
+                    <div class="flex items-center justify-between mt-3 px-3">
                         <a href="javascript:;" class="text-xs text-gray-500 relative" 
                             id="post-views-container"
                     
@@ -36,14 +36,7 @@
                     </div>
                 @endif
 
-                <div class="flex items-center lg:justify-center text-sm mt-4">
-                    <img src="/images//lary-avatar.svg" alt="Lary avatar">
-                    <div class="ml-3 text-left">
-                        <h5 class="font-bold">
-                            <a href="/?author={{ $post->author->username }}">{{ ucwords($post->author->name) }}</a>
-                        </h5>
-                    </div>
-                </div>
+                <x-author-section :post="$post" class="lg:justify-center mt-4" /> 
             </div>
 
             <div class="col-span-8">
