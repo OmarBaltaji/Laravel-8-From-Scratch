@@ -66,4 +66,9 @@ class Post extends Model implements Feedable
     {
         return Post::all();
     }
+
+    public function views() 
+    {
+       return $this->hasMany(PostsUsersView::class);
+    }
 }

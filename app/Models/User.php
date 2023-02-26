@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return ucwords($username);
     }
+
+    public function views() 
+    {
+        return $this->hasMany(PostsUsersView::class);
+    }
 }
