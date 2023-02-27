@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
+use App\Services\MailchimpNewsletter;
 
 class AdminPostController extends Controller
 {
@@ -32,6 +33,7 @@ class AdminPostController extends Controller
         if(request('status') === 'published') {
             $post->published_at = now();
             $post->save();
+            MailchimpNewsletter::notify(config('services.mailchimp.author_followers.campaign_id'));
         }
 
         return redirect('/posts/' . $post->slug);
@@ -57,6 +59,7 @@ class AdminPostController extends Controller
         if($old_status !== 'published' && request('status') === 'published') {
             $post->published_at = now();
             $post->save();
+            MailchimpNewsletter::notify(config('services.mailchimp.author_followers.campaign_id'));
         }
 
         return back()->with('success', 'Post Updated');

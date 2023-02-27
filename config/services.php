@@ -34,7 +34,11 @@ return [
         'lists' => [
             'subscribers' => env('MAILCHIMP_LIST_SUBSCRIBERS')
         ],
-        'key' => env('MAILCHIMP_KEY')
+        'key' => env('MAILCHIMP_KEY'),
+        'author_followers' => [
+            // this is the campaign id for the email notifying followers of an author about a new post created by him/her
+            'campaign_id' => env('MAILCHIMP_FOLLOWERS_CAMPAIGN_ID')
+        ]
     ]
     
 ];
