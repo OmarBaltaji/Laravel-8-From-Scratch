@@ -20,10 +20,11 @@ class FollowerController extends Controller
                 if(!$following) {
                     DB::table('followers')->insert([
                         'follower_id' => auth()->user()->id,
-                        'followed_id' => $user->id
+                        'followed_id' => $user->id,
+                        'created_at' => now(),
+                        'updated_at' => now()
                     ]);
             
-                    
                     return back()->with('success', "You are now following $userName");
                 } else {
                     DB::table('followers')->delete($following->id);
