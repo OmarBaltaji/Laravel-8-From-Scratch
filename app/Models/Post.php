@@ -73,6 +73,11 @@ class Post extends Model implements Feedable
 
     public function views() 
     {
-       return $this->hasMany(PostsUsersView::class);
+       return $this->belongsToMany(User::class, 'posts_users_views');
+    }
+
+    public function bookmarks()
+    {
+        return $this->belongsToMany(User::class, 'bookmarks');
     }
 }

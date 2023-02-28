@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\BoomarkController;
 use App\Http\Controllers\FollowerController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
@@ -39,6 +40,7 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function() {
   Route::post('logout', [SessionController::class, 'destroy']);
   Route::post('follow/{user}', [FollowerController::class, 'store']);
+  Route::post('bookmark/{post}', [BoomarkController::class, 'store']);
 });
 
 Route::middleware('can:admin')->group(function() {
