@@ -33,4 +33,9 @@ class BookmarkController extends Controller
             return back()->with('error', 'You cannot bookmark posts created by you');
         }
     }
+
+    public function index() 
+    {
+        return view('bookmarks.index', ['bookmarks' => auth()->user()->bookmarks]);
+    }
 }
