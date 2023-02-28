@@ -6,7 +6,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class BoomarkController extends Controller
+class BookmarkController extends Controller
 {
     public function store(Post $post) 
     {
