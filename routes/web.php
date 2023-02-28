@@ -8,6 +8,7 @@ use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -42,6 +43,8 @@ Route::middleware('auth')->group(function() {
   Route::post('follow/{user}', [FollowerController::class, 'store']);
   Route::post('bookmarks/{post}', [BookmarkController::class, 'store']);
   Route::get('bookmarks', [BookmarkController::class, 'index']);
+  Route::get('users/account', [UserController::class, 'show'])->name('account');
+  Route::patch('users/{user}', [UserController::class, 'update'])->name('account');
 });
 
 Route::middleware('can:admin')->group(function() {

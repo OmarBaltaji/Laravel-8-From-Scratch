@@ -36,6 +36,8 @@
                         @endadmin
                         
                         <x-dropdown-item href="/bookmarks" :active="request()->is('bookmarks')">Bookmarks</x-dropdown-item>
+                        
+                        <x-dropdown-item href="/users/account" :active="request()->routeIs('account')">Account</x-dropdown-item>
 
                         <x-dropdown-item x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()" href="#">Logout</x-dropdown-item>
                         
