@@ -14,7 +14,7 @@
 
             <x-tooltip message="Bookmark" class="w-15 -left-8" />
         </a>      
-        <form id="bookmark-form" action="/bookmarks" method="POST" class="hidden">
+        <form id="bookmark-form" action="/bookmarks/{{ $post->id }}" method="POST" class="hidden">
             @csrf
         </form>           
     @endif
