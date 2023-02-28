@@ -1,7 +1,7 @@
 @props(['post'])
 
 <div {{ $attributes->merge(['class' => 'flex items-center text-sm']) }} >
-  <img src="{{ $post->author->avatar ? asset('storage/' . $post->author->avatar) : '/images//lary-avatar.svg' }}" alt="Lary avatar" width="70">
+  <x-avatar :avatar="$post->author->avatar" />
   <div class="ml-3 text-center">
       <h5 class="font-bold mb-2">
           <a href="/?author={{ $post->author->username }}">{{ ucwords($post->author->name) }}</a>

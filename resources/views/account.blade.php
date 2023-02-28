@@ -11,7 +11,7 @@
         <div class="flex-1">
           <x-form.input name="avatar" type="file" accept="image/*" />
         </div>
-        <img src="{{$user->avatar ? asset('storage/' . $user->avatar) : '/images/lary-avatar.svg'}}" alt="" class="rounded-xl ml-6" width="80">
+        <x-avatar :avatar="$user->avatar" class="rounded-xl ml-6" />
       </div>
 
       <x-form.button>Update</x-form.button>
